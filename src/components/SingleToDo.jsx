@@ -22,9 +22,9 @@ const SingleToDo = ({ todo }) => {
     return (
         <li key={todo._id}
             className={`d-flex justify-content-between ${todo.done ? "text-decoration-line-through" : ""}`}
-            onClick={() => { dispatch(toggleToDo(todo._id)); }}>
+            >
             {editing === false ?
-                <div >
+                <div onClick={() => { dispatch(toggleToDo(todo._id)); window.location.reload(true); }}>
                     {todo.data}
                 </div> :
                 <form onSubmit={onFormSubmit} >
@@ -36,8 +36,8 @@ const SingleToDo = ({ todo }) => {
                 </form>
             }
             <div className='icon '>
-                <FaRegEdit onClick={() => setEditing(prevState => !prevState)} />
-                <MdDelete onClick={() => {dispatch(deleteToDo(todo._id));window.location.reload(true);}} />
+                <FaRegEdit size={30} onClick={() => setEditing(prevState => !prevState)} />
+                <MdDelete size={30} onClick={() => {dispatch(deleteToDo(todo._id));window.location.reload(true);}} />
             </div>
         </li>
     )
