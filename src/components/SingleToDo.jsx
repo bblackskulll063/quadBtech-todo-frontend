@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { toggleToDo, UpdateToDo, deleteToDo} from "../redux/actions";
@@ -23,7 +23,7 @@ const SingleToDo = ({ todo }) => {
         <li key={todo._id}
             className={`d-flex justify-content-between ${todo.done ? "text-decoration-line-through" : ""}`}
             onClick={() => { dispatch(toggleToDo(todo._id)); }}>
-            {editing == false ?
+            {editing === false ?
                 <div >
                     {todo.data}
                 </div> :
